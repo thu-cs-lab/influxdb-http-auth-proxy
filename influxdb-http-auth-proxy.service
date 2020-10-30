@@ -1,0 +1,13 @@
+[Unit]
+Description=InfluxDB HTTP auth proxy
+After=network.target
+
+[Service]
+ExecStart=/path/to/influxdb-http-auth-proxy/influxdb-http-auth-proxy --address 1.2.3.4:8086 --upstream 1.2.3.4:8086 --username REDACTED --password REDACTED
+User=quelqu'un
+Group=quelqu'un
+Restart=always
+RestartSec=120
+
+[Install]
+WantedBy=multi-user.target
